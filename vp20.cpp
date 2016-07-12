@@ -8,15 +8,22 @@ public:
 		char top;
 		for(int i=1;i<len;++i)
 		{
+		    if(judge_stack.empty())
+		    {
+		        judge_stack.push(s[i]);
+		    }
+		    else{
 		    top=judge_stack.top();
 			if(top=='{' && s[i]=='}')
 				judge_stack.pop();
 			else if (top=='(' && s[i]==')')
-				judge_stack.pop();
+				{judge_stack.pop();}
 			else if (top=='[' && s[i]==']')
-				judge_stack.pop();
+				{judge_stack.pop();}
 			else
-				judge_stack.push(s[i]);
+				{judge_stack.push(s[i]);}
+		    }
+			
 		}
 		if(judge_stack.empty())
 			return true;
@@ -24,4 +31,4 @@ public:
 			return false;
     }
 };
-//RTE
+//ac注意判断栈空的情况

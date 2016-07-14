@@ -27,3 +27,18 @@ public:
 		return 0;
     }
 };
+/*
+利用异或操作。异或的性质1：交换律a ^ b = b ^ a，性质2：0 ^ a = a。于是利用交换律可以将数组假想成相同元素全部相邻，于是将所有元素依次做异或操作，相同元素异或为0，最终剩下的元素就为Single Number。时间复杂度O(n)，空间复杂度O(1)*/
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int n=nums.size();
+        //异或
+        int elem = 0;
+        for(int i = 0; i < n ; i++) {
+            elem = elem ^ A[i];
+        }
+        
+        return elem;
+    }
+};
